@@ -1,0 +1,51 @@
+<% layout( 'layout' ) -%>
+
+<div class="wrapper">
+    <h1 class="title-page"> Upload File </h1>
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Submit">
+    </form>
+    <div class="portfolio-content"> 
+    <h1 class="title-page">Photo Gallery</h1>
+                
+      <ul class="portfolio-categ filter">
+      <li>categories:</li>
+      <li class="all active"><a href="#">All</a></li>
+            <li class="cat-item-1"><a href="#" title="Category 1">Category 1</a>
+</li>
+    <li class="cat-item-2"><a href="#" title="Category 2">Category 2</a>
+</li>
+    <li class="cat-item-3"><a href="#" title="Category 3">Category 3</a>
+</li>
+    <li class="cat-item-4"><a href="#" title="Category 4">Category 4</a>
+</li>
+        </ul>
+
+        <ul class="portfolio-area"> 
+<% for(var i = 0; i < filesList.length; i++) { %>
+            <li class="portfolio-item2" data-id="id-5" data-type="cat-item-2">  
+                    <div>
+                   <span class="image-block">
+            <% if (filesKind[i].indexOf("image") >= 0) { %>
+                    <a class="image-zoom" href="<%= filesList[i] %>" rel="prettyPhoto[gallery]" title="Lorax"><img width="225" height="140" src="<%= filesList[i] %>" alt="Lorax" title="Lorax" />                    
+                    </a>
+            <% } else if (filesKind[i].indexOf("audio") >= 0) { %>
+                    <a class="image-zoom" href="" rel="prettyPhoto[gallery]" title="Lorax"><img width="225" height="140" src="/javascripts/jquery-photo-gallery/images/music.png" alt="Lorax" title="Lorax" />                    
+                    </a>
+            <% } else { %>
+                    <a class="image-zoom" href="" rel="prettyPhoto[gallery]" title="Lorax"><img width="225" height="140" src="/javascripts/jquery-photo-gallery/images/unknown.png" alt="Lorax" title="Lorax" />
+                    </a>
+            <% } %>
+                    </span>
+                   <div class="home-portfolio-text">
+                    <h2 class="post-title-portfolio"><a href="#" rel="bookmark" title="Lorax">Lorax</a></h2>
+                    <p class="post-subtitle-portfolio">released: 2012</p>
+                    </div>
+                    
+                    </div>  
+                    <a href='<%= filesList[i] %>'>Download</a>
+            </li>
+<% } %>
+        </ul><!--end portfolio-area -->
+</div><!--end portfolio-content -->
