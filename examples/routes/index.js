@@ -27,21 +27,21 @@ function travel(dir, callback, finish) {
 	});
 }
 exports.index = function(req, res) {
-	var dir = "public/uploads";
+	var dir = "uploads";
 	var filesList = [];
 	var filesKind = [];
 	var mime = require('mime');
 
 	travel(dir, function(pathname, callback) {
-		console.log("found " + pathname);
+		// console.log("found " + pathname);
 		var regex = /\\/g;
-		var kind = mime.lookup(pathname.substr(6).replace(regex, "/"));
-		console.log(kind);
+		var kind = mime.lookup(pathname.replace(regex, "/"));
+		// console.log(kind);
 		filesKind.push(kind);
-		filesList.push(pathname.substr(6).replace(regex, "/"));
+		filesList.push(pathname.replace(regex, "/"));
 		callback();
 	}, function() {
-		console.log("List " + filesList);
+		// console.log("List " + filesList);
 		res.render('index', {
 			title: 'Express',
 			filesList: filesList,

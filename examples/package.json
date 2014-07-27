@@ -19,7 +19,8 @@
     "jade": "*",
     "express": "~3.1.0",
     "ejs-locals": "^1.0.2",
-    "mime": "^1.2.11"
+    "mime": "^1.2.11",
+    "response-time": "^2.0.0"
   },
   "noAnalyze": true,
   "license": "Apache",

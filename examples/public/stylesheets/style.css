@@ -36,3 +36,14 @@ a:hover{color:#65a42d; text-decoration:underline;}
 .home-portfolio-text{margin-top:10px;}
 li.active a{ text-decoration:underline;}
 /**** END PORTFOLIO STYLES*****/
+
+.fileinput-button input {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 0px;
+    opacity: 0;
+    font-size: 200px;
+    direction: ltr;
+    cursor: pointer;
+}
